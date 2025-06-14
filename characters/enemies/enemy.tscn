@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bk0otc8ino22l"]
+
+[ext_resource type="Script" uid="uid://6s3spr35wh3o" path="res://characters/enemies/enemy.gd" id="1_uy33a"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_klktt"]
+radius = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uy33a"]
+albedo_color = Color(1, 0.156863, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jfoax"]
+material = SubResource("StandardMaterial3D_uy33a")
+size = Vector3(0.5, 0.25, 0.25)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uy33a"]
+radius = 0.3
+
+[node name="Enemy" type="CharacterBody3D"]
+script = ExtResource("1_uy33a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_klktt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.621513, 0.280682)
+mesh = SubResource("BoxMesh_jfoax")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_uy33a")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

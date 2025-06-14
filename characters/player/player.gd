@@ -36,7 +36,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		rotation_degrees.y -= event.relative.x * mouse_sensetivity
