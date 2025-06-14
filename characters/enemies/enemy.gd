@@ -1,5 +1,5 @@
-extends CharacterBody3D
-class_name AIController
+class_name AIController extends CharacterBody3D
+
 
 @onready var agent: NavigationAgent3D = $NavigationAgent3D
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
