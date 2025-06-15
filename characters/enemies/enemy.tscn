@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bk0otc8ino22l"]
+[gd_scene load_steps=9 format=3 uid="uid://bk0otc8ino22l"]
 
 [ext_resource type="Script" uid="uid://6s3spr35wh3o" path="res://characters/enemies/enemy.gd" id="1_uy33a"]
 [ext_resource type="Script" uid="uid://ctor1fahlf676" path="res://characters/enemies/state_machine.gd" id="2_jfoax"]
+[ext_resource type="Script" uid="uid://ck6ogv7nsytb0" path="res://characters/enemies/patrol.gd" id="3_6lc82"]
+[ext_resource type="Script" uid="uid://e0sd33k8wcgo" path="res://characters/enemies/chase.gd" id="4_008bi"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_klktt"]
 radius = 0.3
@@ -33,11 +35,16 @@ shape = SubResource("CapsuleShape3D_uy33a")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("default_state")]
 script = ExtResource("2_jfoax")
+default_state = NodePath("Patrol")
 
 [node name="Patrol" type="Node" parent="StateMachine"]
+script = ExtResource("3_6lc82")
+controller_path = NodePath("../..")
 
 [node name="Chase" type="Node" parent="StateMachine"]
+script = ExtResource("4_008bi")
+controller_path = NodePath("../..")
 
 [connection signal="target_reached" from="NavigationAgent3D" to="StateMachine" method="_on_navigation_agent_3d_target_reached"]

@@ -8,6 +8,8 @@ var states: Dictionary = {}
 
 
 func _ready() -> void:
+	await get_tree().create_timer(0.5).timeout
+	
 	for child in get_children():
 		if child is State:
 			states[child.name] = child
@@ -31,8 +33,6 @@ func change_state(state_name):
 	
 	current_state = new_state
 	new_state.enter()
-	
-	print("Change State: " + state_name)
 
 
 func _process(delta: float) -> void:

@@ -9,7 +9,7 @@ var controller: AIController
 
 
 func initialize():
-	state_machine.get_parent()
+	state_machine = get_parent()
 	controller = get_node(controller_path)
 
 
