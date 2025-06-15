@@ -5,7 +5,6 @@ var home_position: Vector3
 @export var max_wander_range := 6 # remove later
 @export var min_wait_time := 0.2 # move to Enemy script later
 @export var max_wait_time := 2.0 # move to Enemy script later
-@export var chase_range := 5.0 # change to LOS later
 
 
 func enter():
@@ -28,8 +27,3 @@ func navigation_complete():
 		return
 	
 	_new_patrol_position()
-
-
-func update(delta):
-	if controller.player_distance < chase_range:
-		state_machine.change_state("Chase")

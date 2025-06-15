@@ -1,6 +1,7 @@
 class_name AIController extends CharacterBody3D
 
-
+@onready var state_machine: StateMachine = $StateMachine
+@onready var ray_cast_3d: RayCast3D = $RayCast3D
 @onready var agent: NavigationAgent3D = $NavigationAgent3D
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var player = get_tree().get_first_node_in_group("Player")
@@ -18,12 +19,17 @@ var move_direction: Vector3
 var target_y_rot: float
 var player_distance: float
 
+@export var sight_arc := 100.0
+@export var max_sight_range := 10.0
+
 
 func _ready() -> void:
 	patrol_position = patrol_destination.position
 
 
 func _process(delta: float) -> void:
+	if can_see_player():
+		state_machine.change_state("Chase")
 	if player:
 		player_distance = position.distance_to(player.position)
 
@@ -69,3 +75,24 @@ func update_patrol_position():
 		patrol_position = patrol_destination.position
 	else:
 		patrol_position = home_position
+
+
+func can_see_player() -> bool:
+	var target_pos = player.global_position + Vector3.UP * 1
+	var dir_to_player = global_position.direction_to(target_pos)
+	var dist_to_target = global_position.distance_to(target_pos)
+	var fwd = global_transform.basis.z
+	
+	if dist_to_target > max_sight_range:
+		return false
+	
+	if fwd.angle_to(dir_to_player) > deg_to_rad(sight_arc/2.0):
+		return false
+	
+	ray_cast_3d.enabled = true
+	ray_cast_3d.target_position = ray_cast_3d.to_local(target_pos)
+	ray_cast_3d.force_raycast_update()
+	var has_los = !ray_cast_3d.is_colliding()
+	ray_cast_3d.enabled = false
+	
+	return has_los
