@@ -15,7 +15,8 @@ func enter():
 
 
 func _new_patrol_position():
-	var pos = home_position + random_offsets() * randf_range(0, max_wander_range)
+	controller.update_patrol_position()
+	var pos = controller.patrol_position
 	controller.move_to_position(pos)
 
 

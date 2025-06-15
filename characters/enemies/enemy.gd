@@ -5,14 +5,22 @@ class_name AIController extends CharacterBody3D
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var player = get_tree().get_first_node_in_group("Player")
 
+@export var patrol_destination: Node3D
+@onready var home_position = global_position # Test if needed
+var patrol_position: Vector3
+
 @export var walk_speed := 1.0
-@export var run_speed := 2.0
+@export var run_speed := 3.5
 var is_running := false
 var is_stopped := false
 var look_at_player := false
 var move_direction: Vector3
 var target_y_rot: float
 var player_distance: float
+
+
+func _ready() -> void:
+	patrol_position = patrol_destination.position
 
 
 func _process(delta: float) -> void:
@@ -54,3 +62,10 @@ func move_to_position(to_position: Vector3):
 	is_stopped = false
 
 	agent.target_position = to_position
+
+
+func update_patrol_position():
+	if patrol_position == home_position:
+		patrol_position = patrol_destination.position
+	else:
+		patrol_position = home_position
