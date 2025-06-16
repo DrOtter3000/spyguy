@@ -78,10 +78,11 @@ func update_patrol_position():
 
 
 func can_see_player() -> bool:
-	var target_pos = player.global_position + Vector3.UP * 1
+	var target_pos = player.look_at_position.global_position
 	var dir_to_player = global_position.direction_to(target_pos)
 	var dist_to_target = global_position.distance_to(target_pos)
 	var fwd = global_transform.basis.z
+	print(target_pos)
 	
 	if dist_to_target > max_sight_range:
 		return false

@@ -2,11 +2,13 @@ extends CharacterBody3D
 
 
 @onready var camera_3d: Camera3D = $Camera3D
+@onready var look_at_position: Node3D = $Camera3D/LookAtPosition
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 @export var mouse_sensetivity := .08
+@export var normal_camera_position := 1.7
 
 
 func _ready() -> void:
@@ -17,11 +19,16 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+	
+	if Input.is_action_pressed("crouch"):
+		camera_3d.position.y = lerp(camera_3d.position.y, normal_camera_position / 2, 0.1)
+	else:
+		camera_3d.position.y = lerp(camera_3d.position.y, normal_camera_position, 0.1)
+	
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("left", "right", "forward", "back")
