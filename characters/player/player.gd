@@ -3,6 +3,7 @@ extends CharacterBody3D
 
 @onready var camera_3d: Camera3D = $Camera3D
 @onready var look_at_position: Node3D = $Camera3D/LookAtPosition
+@onready var search_bar: ProgressBar = $HUD/VBoxContainer/HBoxContainer/MarginContainer/SearchBar
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -48,3 +49,11 @@ func _input(event: InputEvent) -> void:
 		rotation_degrees.y -= event.relative.x * mouse_sensetivity
 		camera_3d.rotation_degrees.x -= event.relative.y * mouse_sensetivity
 		camera_3d.rotation_degrees.x = clamp(camera_3d.rotation_degrees.x, -90, 90)
+
+
+func update_search_bar(value):
+	if value == 0:
+		search_bar.visible = false
+	else:
+		search_bar.visible = true
+		search_bar.value = value

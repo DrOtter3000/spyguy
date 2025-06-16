@@ -4,6 +4,6 @@ Stealth game for the Godot Wild Jam 82.
 
 ## Controls
 
-WASD: walk
-Shift: crouch
-Mouse: Look around 
+walk: WASD
+crouch: shift
+look around: mouse 
