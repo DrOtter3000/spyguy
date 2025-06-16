@@ -5,10 +5,15 @@ class_name AIController extends CharacterBody3D
 @onready var agent: NavigationAgent3D = $NavigationAgent3D
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var player = get_tree().get_first_node_in_group("Player")
+@onready var recognicion_timer: Timer = $RecognicionTimer
+
+@export var recognicion_time := 1.5
+@export var lose_interest_time := 5.0
 
 @export var patrol_destination: Node3D
 @onready var home_position = global_position # Test if needed
 var patrol_position: Vector3
+var chasing := false
 
 @export var walk_speed := 1.0
 @export var run_speed := 3.5
@@ -24,12 +29,29 @@ var player_distance: float
 
 
 func _ready() -> void:
+	recognicion_timer.wait_time = recognicion_time
 	patrol_position = patrol_destination.position
 
 
 func _process(delta: float) -> void:
 	if can_see_player():
-		state_machine.change_state("Chase")
+		if chasing:
+			recognicion_timer.stop()
+			recognicion_timer.wait_time = recognicion_time
+			print("start chasing")
+		else:
+			if recognicion_timer.is_stopped():
+				recognicion_timer.start()
+			print(recognicion_timer.time_left)
+	else:
+		if chasing:
+			if recognicion_timer.is_stopped():
+				recognicion_timer.wait_time = lose_interest_time
+				recognicion_timer.start()
+				print("losing interest")
+		else:
+			recognicion_timer.stop()
+			recognicion_timer.wait_time = recognicion_time
 	if player:
 		player_distance = position.distance_to(player.position)
 
@@ -82,7 +104,6 @@ func can_see_player() -> bool:
 	var dir_to_player = global_position.direction_to(target_pos)
 	var dist_to_target = global_position.distance_to(target_pos)
 	var fwd = global_transform.basis.z
-	print(target_pos)
 	
 	if dist_to_target > max_sight_range:
 		return false
@@ -97,3 +118,13 @@ func can_see_player() -> bool:
 	ray_cast_3d.enabled = false
 	
 	return has_los
+
+
+func _on_recognicion_timer_timeout() -> void:
+	if chasing:
+		state_machine.change_state("Patrol")
+		chasing = false
+	else:
+		state_machine.change_state("Chase")
+		chasing = true
+	

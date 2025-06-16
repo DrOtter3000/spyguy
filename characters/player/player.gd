@@ -8,7 +8,7 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 @export var mouse_sensetivity := .08
-@export var normal_camera_position := 1.7
+@export var normal_camera_position := 1.8
 
 
 func _ready() -> void:

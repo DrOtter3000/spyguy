@@ -52,4 +52,8 @@ controller_path = NodePath("../..")
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, 20)
 
+[node name="RecognicionTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="target_reached" from="NavigationAgent3D" to="StateMachine" method="_on_navigation_agent_3d_target_reached"]
+[connection signal="timeout" from="RecognicionTimer" to="." method="_on_recognicion_timer_timeout"]

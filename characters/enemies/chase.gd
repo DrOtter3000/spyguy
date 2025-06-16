@@ -27,8 +27,9 @@ func update(delta):
 		last_path_update_time = current_time
 		controller.move_to_position(controller.player.position)
 	
-	if controller.player_distance < stop_range:
-		controller.is_stopped = true
-	
-	if controller.player_distance > lose_interest_range:
-		state_machine.change_state("Patrol")
+	# May not be needet later
+	#if controller.player_distance < stop_range:
+		#controller.is_stopped = true
+	#
+	#if controller.player_distance > lose_interest_range:
+		#state_machine.change_state("Patrol")
