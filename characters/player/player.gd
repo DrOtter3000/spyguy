@@ -1,9 +1,12 @@
 extends CharacterBody3D
 
 
+@onready var interaction_raycast: RayCast3D = $Camera3D/InteractionRaycast
 @onready var camera_3d: Camera3D = $Camera3D
 @onready var look_at_position: Node3D = $Camera3D/LookAtPosition
 @onready var search_bar: ProgressBar = $HUD/VBoxContainer/HBoxContainer/MarginContainer/SearchBar
+@onready var interaction_label: Label = $HUD/CenterContainer/InteractionLabel
+
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -45,6 +48,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
+	check_for_interactor()
 	if event is InputEventMouseMotion:
 		rotation_degrees.y -= event.relative.x * mouse_sensetivity
 		camera_3d.rotation_degrees.x -= event.relative.y * mouse_sensetivity
@@ -57,3 +61,21 @@ func update_search_bar(value):
 	else:
 		search_bar.visible = true
 		search_bar.value = value
+
+
+func check_for_interactor():
+	if interaction_raycast.is_colliding():
+		var collider = interaction_raycast.get_collider()
+		if collider.has_method("interact"):
+			interaction_label.text = collider.interactor_text
+			if Input.is_action_just_pressed("interact"):
+				change_label_visibility()
+				collider.interact()
+		else:
+			interaction_label.text = "."
+	else:
+		interaction_label.text = "."
+
+
+func change_label_visibility():
+	interaction_label.visible = !interaction_label.visible

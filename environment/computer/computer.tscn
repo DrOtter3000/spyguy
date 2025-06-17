@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmj5eo3u2yfj0"]
+
+[ext_resource type="Script" uid="uid://bq22guuqies7d" path="res://environment/computer/computer.gd" id="1_lhsdm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8yvf0"]
+
+[node name="Computer" type="Node3D" groups=["CodeHolders"]]
+script = ExtResource("1_lhsdm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_8yvf0")
+
+[node name="Label3D" type="Label3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.505)
+text = "1234"

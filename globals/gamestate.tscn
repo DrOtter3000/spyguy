@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bavklciuyuqhc"]
+
+[ext_resource type="Script" uid="uid://dfssv6e8uk3r1" path="res://globals/gamestate.gd" id="1_wx4tf"]
+
+[node name="Gamestate" type="Node"]
+process_mode = 3
+script = ExtResource("1_wx4tf")

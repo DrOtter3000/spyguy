@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://0s0rl7p2jirl"]
+
+[ext_resource type="Script" uid="uid://vdfxklnygp4p" path="res://environment/safe/safe.gd" id="1_spv7t"]
+[ext_resource type="PackedScene" uid="uid://fope6jqcc3to" path="res://environment/safe/safe_input.tscn" id="2_plxli"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_spv7t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_spv7t"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_plxli"]
+material = SubResource("StandardMaterial3D_spv7t")
+
+[node name="Safe" type="Area3D"]
+script = ExtResource("1_spv7t")
+safe_input_scene = ExtResource("2_plxli")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_spv7t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_plxli")

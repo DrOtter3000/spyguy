@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bip3fdwabopp3"]
+[gd_scene load_steps=15 format=3 uid="uid://bip3fdwabopp3"]
 
 [ext_resource type="PackedScene" uid="uid://dpwu6btvs517q" path="res://characters/player/player.tscn" id="1_80vhd"]
 [ext_resource type="PackedScene" uid="uid://bk0otc8ino22l" path="res://characters/enemies/enemy.tscn" id="2_hjsbj"]
+[ext_resource type="PackedScene" uid="uid://cmj5eo3u2yfj0" path="res://environment/computer/computer.tscn" id="4_5mrsh"]
+[ext_resource type="PackedScene" uid="uid://0s0rl7p2jirl" path="res://environment/safe/safe.tscn" id="5_safpt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_80vhd"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -1043,3 +1045,9 @@ patrol_destination = NodePath("../TargetPositions/TargetPosition")
 
 [node name="TargetPosition" type="Node3D" parent="TargetPositions"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 7)
+
+[node name="Computer" parent="." instance=ExtResource("4_5mrsh")]
+transform = Transform3D(-0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, -6, 0, 18)
+
+[node name="Safe" parent="." instance=ExtResource("5_safpt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 18)

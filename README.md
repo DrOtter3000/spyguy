@@ -7,3 +7,4 @@ Stealth game for the Godot Wild Jam 82.
 walk: WASD
 crouch: shift
 look around: mouse 
+interact: LMB

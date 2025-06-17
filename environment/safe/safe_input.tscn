@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://fope6jqcc3to"]
+
+[ext_resource type="Script" uid="uid://06ty7qaow73u" path="res://environment/safe/safe_input.gd" id="1_rih4x"]
+
+[node name="SaveInput" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_rih4x")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_top = -26.0
+offset_right = 81.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+max_length = 4
+
+[node name="OKButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "OK"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/OKButton" to="." method="_on_ok_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
