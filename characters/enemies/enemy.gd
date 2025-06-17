@@ -7,8 +7,10 @@ class_name AIController extends CharacterBody3D
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var recognicion_timer: Timer = $RecognicionTimer
 
-@export var recognicion_time := 15
+@export var recognicion_time := 1.5
 @export var lose_interest_time := 5.0
+
+@export var catch_distance := 1.25
 
 @export var patrol_destination: Node3D
 @onready var home_position = global_position # Test if needed
@@ -38,11 +40,10 @@ func _process(delta: float) -> void:
 		if chasing:
 			recognicion_timer.stop()
 			recognicion_timer.wait_time = recognicion_time
-			print("start chasing")
+			check_distance()
 		else:
 			if recognicion_timer.is_stopped():
 				recognicion_timer.start()
-			print(recognicion_timer.time_left)
 			var percentage =(recognicion_time - recognicion_timer.time_left) / recognicion_time
 			get_tree().call_group("Player", "update_search_bar", percentage)
 	else:
@@ -50,7 +51,6 @@ func _process(delta: float) -> void:
 			if recognicion_timer.is_stopped():
 				recognicion_timer.wait_time = lose_interest_time
 				recognicion_timer.start()
-				print("losing interest")
 		else:
 			recognicion_timer.stop()
 			recognicion_timer.wait_time = recognicion_time
@@ -134,3 +134,8 @@ func _on_recognicion_timer_timeout() -> void:
 	else:
 		state_machine.change_state("Chase")
 		chasing = true
+
+
+func check_distance():
+	if player_distance < catch_distance:
+		get_tree().call_deferred("change_scene_to_file", "res://menues/results/results.tscn")

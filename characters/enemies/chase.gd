@@ -1,8 +1,7 @@
 extends State
 
 
-@export var stop_range := 1.0
-@export var lose_interest_range := 10.0 # replace with time later?
+@export var catch_range := 0.5
 
 var path_update_rate := 0.1
 var last_path_update_time: float
@@ -27,9 +26,7 @@ func update(delta):
 		last_path_update_time = current_time
 		controller.move_to_position(controller.player.position)
 	
-	# May not be needet later
-	#if controller.player_distance < stop_range:
+	#if controller.player_distance < catch_range:
 		#controller.is_stopped = true
-	#
-	#if controller.player_distance > lose_interest_range:
-		#state_machine.change_state("Patrol")
+		#
+		
