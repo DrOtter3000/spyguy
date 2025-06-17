@@ -32,3 +32,7 @@ func _on_exit_button_pressed() -> void:
 
 func _on_ok_button_pressed() -> void:
 	enter_code()
+
+
+func _on_line_edit_text_submitted(new_text: String) -> void:
+	enter_code()
