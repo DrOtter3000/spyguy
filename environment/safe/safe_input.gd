@@ -7,6 +7,7 @@ extends CanvasLayer
 func _ready() -> void:
 	get_tree().paused = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	line_edit.grab_focus()
 
 
 func leave():
