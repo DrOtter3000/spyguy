@@ -3,6 +3,7 @@ extends Node
 
 var code: int
 var intelligence_taken := false
+var won := false
 
 
 func _ready() -> void:

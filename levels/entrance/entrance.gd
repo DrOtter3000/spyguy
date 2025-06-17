@@ -13,4 +13,5 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if Gamestate.intelligence_taken:
-		print("you win")
+		Gamestate.won = true
+		get_tree().call_deferred("change_scene_to_file", "res://menues/results/results.tscn")
