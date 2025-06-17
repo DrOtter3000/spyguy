@@ -25,6 +25,7 @@ layout_mode = 2
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+placeholder_text = "Password"
 alignment = 1
 max_length = 4
 

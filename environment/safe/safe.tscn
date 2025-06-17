@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://0s0rl7p2jirl"]
+[gd_scene load_steps=7 format=3 uid="uid://0s0rl7p2jirl"]
 
 [ext_resource type="Script" uid="uid://vdfxklnygp4p" path="res://environment/safe/safe.gd" id="1_spv7t"]
 [ext_resource type="PackedScene" uid="uid://fope6jqcc3to" path="res://environment/safe/safe_input.tscn" id="2_plxli"]
+[ext_resource type="PackedScene" uid="uid://c55w272btt5n6" path="res://intelligence/intelligence.tscn" id="3_i2fvd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_spv7t"]
 
@@ -21,3 +22,5 @@ shape = SubResource("BoxShape3D_spv7t")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("BoxMesh_plxli")
+
+[node name="Intelligence" parent="." instance=ExtResource("3_i2fvd")]

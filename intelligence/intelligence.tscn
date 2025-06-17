@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c55w272btt5n6"]
+
+[ext_resource type="Script" uid="uid://gtjys1a8gfq7" path="res://intelligence/intelligence.gd" id="1_gutrj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vlr3d"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ynarw"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="Intelligence" type="Area3D" groups=["Safe"]]
+script = ExtResource("1_gutrj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = SubResource("BoxMesh_vlr3d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_ynarw")

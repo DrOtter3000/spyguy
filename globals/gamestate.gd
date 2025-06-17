@@ -2,6 +2,7 @@ extends Node
 
 
 var code: int
+var intelligence_taken := false
 
 
 func _ready() -> void:

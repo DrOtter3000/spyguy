@@ -20,7 +20,7 @@ func enter_code():
 	var code_entered = line_edit.text
 	var correct_code = str(Gamestate.code)
 	if code_entered == correct_code:
-		# TODO: Open safe
+		get_parent().open()
 		leave()
 	else:
 		# TODO: Add reaction
