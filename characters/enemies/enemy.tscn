@@ -50,7 +50,9 @@ script = ExtResource("4_008bi")
 controller_path = NodePath("../..")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(0, 0, 20)
+collision_mask = 9
 
 [node name="RecognicionTimer" type="Timer" parent="."]
 one_shot = true
