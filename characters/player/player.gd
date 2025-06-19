@@ -66,7 +66,6 @@ func update_search_bar(value):
 func check_for_interactor():
 	if interaction_raycast.is_colliding():
 		var collider = interaction_raycast.get_collider()
-		print(collider)
 		if collider.has_method("interact"):
 			interaction_label.text = collider.interactor_text
 			if Input.is_action_just_pressed("interact"):

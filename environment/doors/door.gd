@@ -2,9 +2,14 @@ extends Area3D
 
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var door: MeshInstance3D = $DoorAsset/Door
 var open := false
 var interactor_text := "Use Door(LMB)"
 
+
+
+func _ready() -> void:
+	door.rotation.y = 0
 
 
 func interact():
