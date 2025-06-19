@@ -13,7 +13,6 @@ func _ready() -> void:
 
 
 func interact():
-	print("interacted")
 	if not animation_player.is_playing():
 		if open:
 			animation_player.play("close")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://bip3fdwabopp3"]
+[gd_scene load_steps=14 format=3 uid="uid://bip3fdwabopp3"]
 
 [ext_resource type="PackedScene" uid="uid://dpwu6btvs517q" path="res://characters/player/player.tscn" id="1_80vhd"]
 [ext_resource type="PackedScene" uid="uid://bk0otc8ino22l" path="res://characters/enemies/enemy.tscn" id="2_hjsbj"]
 [ext_resource type="PackedScene" uid="uid://cydhwfn27wvj5" path="res://Assets/Wall.glb" id="3_5mrsh"]
 [ext_resource type="PackedScene" uid="uid://csv61h6g8unat" path="res://Assets/Window.glb" id="4_safpt"]
 [ext_resource type="PackedScene" uid="uid://clmqsnsvhkr0x" path="res://environment/doors/door.tscn" id="5_safpt"]
+[ext_resource type="PackedScene" uid="uid://0s0rl7p2jirl" path="res://environment/safe/safe.tscn" id="6_gjl0y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_80vhd"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -500,3 +501,6 @@ transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 2, 0, 
 
 [node name="Door14" parent="NavigationRegion3D/Doors" instance=ExtResource("5_safpt")]
 transform = Transform3D(3.0598e-07, 0, 1, 0, 1, 0, -1, 0, 3.0598e-07, -6, 0, 20)
+
+[node name="Safe" parent="NavigationRegion3D" instance=ExtResource("6_gjl0y")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -24, 1, -3)
