@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://1h4dlk8vpqa5" path="res://levels/entrance/entrance.gd" id="1_1oiar"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_248ru"]
-size = Vector3(4, 4, 1)
+size = Vector3(4, 4, 4)
 
 [sub_resource type="BoxMesh" id="BoxMesh_1oiar"]
 size = Vector3(4, 4, 0.25)
@@ -17,7 +17,7 @@ collision_mask = 2
 script = ExtResource("1_1oiar")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 1.5)
 shape = SubResource("BoxShape3D_248ru")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

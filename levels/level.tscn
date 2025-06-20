@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bip3fdwabopp3"]
+[gd_scene load_steps=21 format=3 uid="uid://bip3fdwabopp3"]
 
 [ext_resource type="PackedScene" uid="uid://dpwu6btvs517q" path="res://characters/player/player.tscn" id="1_80vhd"]
 [ext_resource type="PackedScene" uid="uid://bk0otc8ino22l" path="res://characters/enemies/enemy.tscn" id="2_hjsbj"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://o3wh2ci2u7qf" path="res://Assets/Plant.glb" id="10_ukwr8"]
 [ext_resource type="PackedScene" uid="uid://bvbwotxglwt17" path="res://Assets/Locker.glb" id="11_pb8y7"]
 [ext_resource type="PackedScene" uid="uid://3jc26cwfns48" path="res://Assets/Sofa.glb" id="12_hy0rb"]
+[ext_resource type="PackedScene" uid="uid://biv2ex4s8th52" path="res://levels/entrance/entrance.tscn" id="13_mxp4k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_80vhd"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -1024,3 +1025,6 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.3, 0
 
 [node name="Sofa10" parent="NavigationRegion3D/Sofas" instance=ExtResource("12_hy0rb")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -20.6, 0, 25.3)
+
+[node name="Entrance" parent="NavigationRegion3D" instance=ExtResource("13_mxp4k")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22, 0, 20)
