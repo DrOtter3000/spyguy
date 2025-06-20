@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://7kx4sj02ewr2"
-path="res://.godot/imported/Safe.glb-1d884b0f9413ac3a001683e295d65166.scn"
+uid="uid://daj5kwc7a7ytl"
+path="res://.godot/imported/Keyboard.glb-d44caf2ca82fbb786b486004fccf56c0.scn"
 
 [deps]
 
-source_file="res://Assets/Safe.glb"
-dest_files=["res://.godot/imported/Safe.glb-1d884b0f9413ac3a001683e295d65166.scn"]
+source_file="res://Assets/Keyboard.glb"
+dest_files=["res://.godot/imported/Keyboard.glb-d44caf2ca82fbb786b486004fccf56c0.scn"]
 
 [params]
 
@@ -34,11 +34,7 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:Base": {
-"generate/physics": true,
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Door_001": {
+"PATH:Keyboard": {
 "mesh_instance/cast_shadow": 0
 }
 }

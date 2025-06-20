@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=3 uid="uid://brlgix87s805y"]
+
+[ext_resource type="Script" uid="uid://dbi0le0pobkre" path="res://environment/desk/desk.gd" id="1_h56pd"]
+[ext_resource type="PackedScene" uid="uid://cfy62qbammuxd" path="res://Assets/Desk.glb" id="2_wg4nh"]
+[ext_resource type="PackedScene" uid="uid://daj5kwc7a7ytl" path="res://Assets/Keyboard.glb" id="3_s37di"]
+[ext_resource type="PackedScene" uid="uid://c5urgd5kyiyt1" path="res://Assets/Monitor.glb" id="4_248eg"]
+[ext_resource type="PackedScene" uid="uid://bu78u4y3vl65u" path="res://Assets/Mouse.glb" id="5_s8bay"]
+[ext_resource type="PackedScene" uid="uid://cb2g1mrm57yli" path="res://Assets/Tower.glb" id="6_kgmim"]
+
+[node name="Desk" type="Node3D"]
+script = ExtResource("1_h56pd")
+
+[node name="Desk2" parent="." instance=ExtResource("2_wg4nh")]
+
+[node name="Keyboard2" parent="." instance=ExtResource("3_s37di")]
+transform = Transform3D(0.997656, 0, 0.0684332, 0, 1, 0, -0.0684332, 0, 0.997656, -0.315465, 0.961563, 0.211116)
+
+[node name="Monitor2" parent="." instance=ExtResource("4_248eg")]
+transform = Transform3D(0.901433, 0, -0.43292, 0, 1, 0, 0.43292, 0, 0.901433, 0.378018, 0.948128, -0.181338)
+
+[node name="Mouse2" parent="." instance=ExtResource("5_s8bay")]
+transform = Transform3D(0.327297, 0, -0.124002, 0, 0.35, 0, 0.124002, 0, 0.327297, 0.0736523, 0.947589, 0.149653)
+
+[node name="Tower2" parent="." instance=ExtResource("6_kgmim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12243, 0, 0.190776)

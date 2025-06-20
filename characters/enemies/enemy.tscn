@@ -16,12 +16,13 @@ material = SubResource("StandardMaterial3D_uy33a")
 size = Vector3(0.5, 0.25, 0.25)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uy33a"]
-radius = 0.15
+radius = 0.3
 
 [node name="Enemy" type="CharacterBody3D"]
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_uy33a")
+walk_speed = 3.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -54,8 +55,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 target_position = Vector3(0, 0, 20)
 collision_mask = 9
 
-[node name="RecognicionTimer" type="Timer" parent="."]
+[node name="RecognitionTimer" type="Timer" parent="."]
 one_shot = true
 
 [connection signal="target_reached" from="NavigationAgent3D" to="StateMachine" method="_on_navigation_agent_3d_target_reached"]
-[connection signal="timeout" from="RecognicionTimer" to="." method="_on_recognicion_timer_timeout"]
+[connection signal="timeout" from="RecognitionTimer" to="." method="_on_recognition_timer_timeout"]

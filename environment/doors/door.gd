@@ -9,7 +9,9 @@ var interactor_text := "Use Door(LMB)"
 
 
 func _ready() -> void:
+	door.scale = Vector3(1,1,1)
 	door.rotation.y = 0
+	$StaticBody3D.queue_free()
 
 
 func interact():
