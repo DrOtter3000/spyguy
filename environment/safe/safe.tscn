@@ -55,6 +55,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.45)
 shape = SubResource("BoxShape3D_spv7t")
 
 [node name="Intelligence" parent="." instance=ExtResource("3_i2fvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0759968, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
