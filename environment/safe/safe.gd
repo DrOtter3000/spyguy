@@ -16,6 +16,5 @@ func interact():
 
 func open():
 	if closed:
-		get_tree().call_group("Player", "change_label_visibility")
 		animation_player.play("open")
 		collision_shape_3d.disabled = true
